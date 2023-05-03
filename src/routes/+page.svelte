@@ -25,8 +25,12 @@
 
 
 <style>
+    * {
+        color: #e3e3e3;
+    }
     main {
         background-color: #e3e4ff;
+        background: linear-gradient(to bottom, #725285, #bf81dc);
     }
     .content {
         display: flex;
@@ -51,5 +55,6 @@
         font-size: 25px;
         margin: 0px;
         font-weight: 100;
+        color: #3e3e3e !important;
     }
 </style>

@@ -22,7 +22,7 @@
             obj_libro = true;
             return;
         }
-        if(!obj_tocador){
+        if(element === 3 && !obj_tocador){
             contador += 1;
             obj_tocador = true;
         }      
@@ -36,16 +36,22 @@
         <br>
         <p>Busca los siguientes objetos para descubrir lo que sucedió: El arma de Isa, libro peculiar y el cristal roto.</p>
     </div>
-    <div class="hidden-obj">
-        <div class="imagen">
-            <div class="relativo">
-                <img class="background" src={TheRoom} alt="La habitación">
-                <img class="obj1" src={Daga} alt="Daga" on:click={() => handleClick(1)}>
-                <img class="obj2" src={Libro} alt="Libro" on:click={() => handleClick(2)}>
-                <img class="obj3" src={Tocador} alt="Cristal roto" on:click={() => handleClick(3)}>
+    <div class="middle">
+        <div class="hidden-obj">
+            <div class="imagen">
+                <div class="relativo">
+                    <img class="background" src={TheRoom} alt="La habitación">
+                    <img class="obj1" src={Daga} alt="Daga" on:click={() => handleClick(1)}>
+                    <img class="obj2" src={Libro} alt="Libro" on:click={() => handleClick(2)}>
+                    <img class="obj3" src={Tocador} alt="Cristal roto" on:click={() => handleClick(3)}>
+                </div>
             </div>
         </div>
+        <span class="contador-section">
+            <p class="contador">{contador} / 3</p>
+        </span>
     </div>
+    
     <Final contador={contador}/>
 </main>
 
@@ -62,12 +68,15 @@
         font-size: 20px;
     }
 
+    .hidden-obj {
+        width: 80%;
+    }
     .imagen {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 10px;
         padding-top: 0px;
     }
     .relativo {
@@ -75,7 +84,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 85%;
+        width: 100%;
     }
 
     .background {
@@ -88,6 +97,7 @@
         top: 87.25%;
         left: 26.1%;
         z-index: 1;
+        cursor: pointer;
     }
     .obj2 {
         position: absolute;
@@ -95,6 +105,7 @@
         top: 75%;
         left: 68.3%;
         z-index: 1;
+        cursor: pointer;
     }
     .obj3 {
         position: absolute;
@@ -102,5 +113,36 @@
         top: 12.1%;
         left: 27.4%;
         z-index: 1;
+        cursor: pointer;
     }
+
+    .middle {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+    
+
+    .contador-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+    }
+    .contador {
+        font-weight: bold;
+        padding: 20px;
+        background-color: #4d0a8c;
+        border-radius: 20px;
+        color: #f8f8f8;
+    }
+
+    @media (max-width: 800px) {
+        .middle {
+            flex-direction: column;
+        }
+        .hidden-obj {
+            width: 90%;
+        }
+    } 
 </style>
