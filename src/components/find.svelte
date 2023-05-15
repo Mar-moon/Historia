@@ -49,6 +49,7 @@
         </div>
         <span class="contador-section">
             <p class="contador">{contador} / 3</p>
+            <p class="fd">Fragmentos desbloqueados</p>
         </span>
     </div>
     
@@ -84,7 +85,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 80%;
     }
 
     .background {
@@ -125,6 +126,7 @@
 
     .contador-section {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 20%;
@@ -136,6 +138,11 @@
         border-radius: 20px;
         color: #f8f8f8;
     }
+    .fd {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: center;
+        font-family: 'Cinzel Decorative', cursive;
+    }
 
     @media (max-width: 800px) {
         .middle {
@@ -143,6 +150,9 @@
         }
         .hidden-obj {
             width: 90%;
+        }
+        .relativo {
+            width: 100%;
         }
     } 
 </style>

@@ -1,6 +1,11 @@
 <script>
     import Raquel from '../assets/Raquel.png';
+    import Raquel1 from '../assets/Raquel1.png';
+    import Raquel2 from '../assets/Raquel2.png';
+    import Raquel3 from '../assets/Raquel3.png';
     import QR from '../assets/qr.png';
+    import Source from '../assets/Inspiro.png';
+    import Spotify from '../assets/Spoti.png';
 
     export let contador = 0;
 </script>
@@ -83,12 +88,22 @@
         {/if}
     </div>
     <div class="imagen">
-        <img src={Raquel} alt="MaxF">
+        {#if contador == 0}
+            <img src={Raquel} alt="MaxF">
+        {:else if contador == 1}
+            <img src={Raquel1} alt="MaxF">
+        {:else if contador == 2}
+            <img src={Raquel2} alt="MaxF">
+        {:else}
+            <img src={Raquel3} alt="MaxF">
+        {/if}
     </div>
 </main>
 {#if contador >= 3}
-    <div class="codigo">
+    <div class="images">
         <img src={QR} alt="Código QR">
+        <img src={Source} alt="Inspirado en...">
+        <img src={Spotify} alt="Spotify">
     </div>
 {/if}
 
@@ -118,19 +133,25 @@
     .parrafo p {
         margin: 0;
     }
-    .codigo {
+    .images {
         display: flex;
+        flex-direction: row;
         margin: 10px;
         padding: 10px;
         align-items: center;
         justify-content: center;
     }
-    .codigo img {
+    .images img {
         max-width: 200px;
+        margin: 5px;
     }
     @media (max-width: 700px) {
         img {
             max-width: 170px;
+        }
+        .images img {
+            max-width: 140px;
+            margin: 5px;
         }
     }
 </style>
